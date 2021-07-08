@@ -15,7 +15,6 @@ class MyCalc extends StatefulWidget {
 class _MyCalcState extends State<MyCalc> {
 
   String input = '0';
-  double? ans;
   String? output = '';
 
   void _update(String str){
@@ -26,7 +25,12 @@ class _MyCalcState extends State<MyCalc> {
       else{
         input += str;
       }
+      _calculate();
     });
+  }
+
+  String? _calculate(){
+
   }
 
   @override
@@ -80,73 +84,155 @@ class _MyCalcState extends State<MyCalc> {
                 children: [
                   Row(
                     children: [
-                      OutlinedButton(
-                        child: Text('7', style: TextStyle(fontWeight: FontWeight.normal),),
-                        onPressed: () => _update('7'),
-                      ),
-                      OutlinedButton(
-                        child: Text('8', style: TextStyle(fontWeight: FontWeight.normal),),
-                        onPressed: () => _update('8'),
-                      ),
-                      OutlinedButton(
-                        child: Text('9', style: TextStyle(fontWeight: FontWeight.normal),),
-                        onPressed: () => _update('9'),
-                      ),
-                      OutlinedButton(
-                        child: Icon(
-                          CupertinoIcons.add,
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Text('7', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50), ),
+                          onPressed: () => _update('7'),
+                          style: OutlinedButton.styleFrom(minimumSize: Size.fromHeight(90)),
                         ),
-                        onPressed: () => _update(' + '),
-                        style: OutlinedButton.styleFrom(primary: Colors.lightBlue),
+                      ),
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Text('8', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50), ),
+                          onPressed: () => _update('8'),
+                          style: OutlinedButton.styleFrom(minimumSize: Size.fromHeight(90)),
+                        ),
+                      ),
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Text('9', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50), ),
+                          onPressed: () => _update('9'),
+                          style: OutlinedButton.styleFrom(minimumSize: Size.fromHeight(90)),
+                        ),
+                      ),
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Icon(
+                            CupertinoIcons.add,
+                            size: 50,
+                          ),
+                          onPressed: () => _update(' + '),
+                          style: OutlinedButton.styleFrom(primary: Colors.lightBlue, minimumSize: Size.fromHeight(90)),
+                        ),
                       ),
                     ],
                   ),
                   Row(
                     children: [
-                      OutlinedButton(
-                        child: Text('4', style: TextStyle(fontWeight: FontWeight.normal),),
-                        onPressed: () => _update('4'),
-                      ),
-                      OutlinedButton(
-                        child: Text('5', style: TextStyle(fontWeight: FontWeight.normal),),
-                        onPressed: () => _update('5'),
-                      ),
-                      OutlinedButton(
-                        child: Text('6', style: TextStyle(fontWeight: FontWeight.normal),),
-                        onPressed: () => _update('6'),
-                      ),
-                      OutlinedButton(
-                        child: Icon(
-                          CupertinoIcons.minus,
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Text('4', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50), ),
+                          onPressed: () => _update('4'),
+                          style: OutlinedButton.styleFrom(minimumSize: Size.fromHeight(90)),
                         ),
-                        onPressed: () => _update(' - '),
-                        style: OutlinedButton.styleFrom(primary: Colors.lightBlue),
+                      ),
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Text('5', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50), ),
+                          onPressed: () => _update('5'),
+                          style: OutlinedButton.styleFrom(minimumSize: Size.fromHeight(90)),
+                        ),
+                      ),
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Text('6', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50), ),
+                          onPressed: () => _update('6'),
+                          style: OutlinedButton.styleFrom(minimumSize: Size.fromHeight(90)),
+                        ),
+                      ),
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Icon(
+                            CupertinoIcons.minus,
+                            size: 50,
+                          ),
+                          onPressed: () => _update(' - '),
+                          style: OutlinedButton.styleFrom(primary: Colors.lightBlue, minimumSize: Size.fromHeight(90)),
+                        ),
                       ),
                     ],
                   ),
                   Row(
                     children: [
-                      OutlinedButton(
-                        child: Text('1', style: TextStyle(fontWeight: FontWeight.normal),),
-                        onPressed: () => _update('1'),
-                      ),
-                      OutlinedButton(
-                        child: Text('2', style: TextStyle(fontWeight: FontWeight.normal),),
-                        onPressed: () => _update('2'),
-                      ),
-                      OutlinedButton(
-                        child: Text('3', style: TextStyle(fontWeight: FontWeight.normal),),
-                        onPressed: () => _update('3'),
-                      ),
-                      OutlinedButton(
-                        child: Icon(
-                          CupertinoIcons.multiply,
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Text('1', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50), ),
+                          onPressed: () => _update('1'),
+                          style: OutlinedButton.styleFrom(minimumSize: Size.fromHeight(90)),
                         ),
-                        onPressed: () => _update(' x '),
-                        style: OutlinedButton.styleFrom(primary: Colors.lightBlue),
+                      ),
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Text('2', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50), ),
+                          onPressed: () => _update('2'),
+                          style: OutlinedButton.styleFrom(minimumSize: Size.fromHeight(90)),
+                        ),
+                      ),
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Text('3', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50), ),
+                          onPressed: () => _update('3'),
+                          style: OutlinedButton.styleFrom(minimumSize: Size.fromHeight(90)),
+                        ),
+                      ),
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Icon(
+                            CupertinoIcons.multiply,
+                            size: 50,
+                          ),
+                          onPressed: () => _update(' x '),
+                          style: OutlinedButton.styleFrom(primary: Colors.lightBlue, minimumSize: Size.fromHeight(90)),
+                        ),
                       ),
                     ],
                   ),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Text('.', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50), ),
+                          onPressed: () => _update('.'),
+                          style: OutlinedButton.styleFrom(minimumSize: Size.fromHeight(90)),
+                        ),
+                      ),
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Text('0', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50), ),
+                          onPressed: () => _update('0'),
+                          style: OutlinedButton.styleFrom(minimumSize: Size.fromHeight(90)),
+                        ),
+                      ),
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Text('00', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50), ),
+                          onPressed: () => _update('00'),
+                          style: OutlinedButton.styleFrom(minimumSize: Size.fromHeight(90)),
+                        ),
+                      ),
+                      Expanded(
+                        child: OutlinedButton(
+                          child: Text('C', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50, color: Colors.white), ),
+                          onPressed: () {
+                            setState(() {
+                              input = '0';
+                              output = '';
+                            });
+                          },
+                          style: OutlinedButton.styleFrom(minimumSize: Size.fromHeight(90), backgroundColor: Colors.redAccent),
+                        ),
+                      ),
+                    ],
+                  ),
+                  OutlinedButton(
+                    child: Text('=', style: TextStyle(fontWeight: FontWeight.normal, fontSize: 50),),
+                    onPressed: (){
+                      setState(() {
+                        output = _calculate();
+                      });
+                    },
+                    style: OutlinedButton.styleFrom(minimumSize: Size(double.infinity, 90), backgroundColor: Colors.lightGreen),
+                  )
                 ],
               ))
             ],
