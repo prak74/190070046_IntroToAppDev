@@ -19,18 +19,46 @@ class _MyCalcState extends State<MyCalc> {
 
   void _update(String str){
     setState(() {
-      if(input == '0'){
+      if(input == '0' && str != '.'){
         input = str;
       }
       else{
         input += str;
       }
-      _calculate();
+      // RegExp exp = RegExp(r'\b([0-9]+) [x\+\-] ([0-9]+)');
+      // if(exp.hasMatch(input)){
+      //   output = _calculate();
+      // }
     });
   }
 
   String? _calculate(){
-
+    String inp = input;
+    while(inp.contains('x')){
+      inp = inp.replaceAllMapped(RegExp(r'\b([0-9]+) x ([0-9]+)'), (Match m){
+        int a = int.parse(m[1]!);
+        int b = int.parse(m[2]!);
+        int ans = a*b;
+        return ans.toString();
+      });
+    }
+    while(inp.contains('+')){
+      inp = inp.replaceAllMapped(RegExp(r'\b([0-9]+) \+ ([0-9]+)'), (Match m){
+        int a = int.parse(m[1]!);
+        int b = int.parse(m[2]!);
+        int ans = a+b;
+        return ans.toString();
+      });
+    }
+    while(inp.contains('-')){
+      inp = inp.replaceAllMapped(RegExp(r'\b([0-9]+) \- ([0-9]+)'), (Match m){
+        int a = int.parse(m[1]!);
+        int b = int.parse(m[2]!);
+        int ans = a-b;
+        return ans.toString();
+      });
+    }
+    return inp;
   }
 
   @override
